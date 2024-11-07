@@ -42,8 +42,8 @@ export default function Home() {
     if (timers[item.name]) {
       clearTimeout(timers[item.name]);
       setTimers((prev) => {
-        const { [item.name]: _, ...rest } = prev;
-        return rest;
+        delete prev[item.name];
+        return prev;
       });
     }
 
